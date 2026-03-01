@@ -1,2 +1,2 @@
-# The Battlestar Express REPO
-GDD*311 Game Lab III Internship Project
+# The_Battlestar_Express_Project_BASE
+
