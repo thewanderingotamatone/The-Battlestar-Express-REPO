@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     [Header("Popularity Settings")]
-    // Starts out with "X" amount of pts (120 = max)
+    // Starts out with "X" amount of pts (120 = max) (REPLACE THIS TO "60" WHEN BEGINNING GAME)
     public float popularity = 120f;
     // Rate of point decay
     public float decayRateMultiplier = 1f;
