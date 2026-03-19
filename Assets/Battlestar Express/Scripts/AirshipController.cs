@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class AirshipController : MonoBehaviour
+    // Variable
 {
     private InputAction moveAction;
     private InputAction heightAction;  
@@ -18,7 +19,7 @@ public class AirshipController : MonoBehaviour
 
     void Start()
     {
-        
+        //Input Action binds
         moveAction = new InputAction("Move");
         moveAction.AddCompositeBinding("2DVector(mode=2)")
             .With("Up", "<Keyboard>/w")     
@@ -27,7 +28,7 @@ public class AirshipController : MonoBehaviour
             .With("Right", "<Keyboard>/d"); 
         moveAction.Enable();
 
-    
+    //Height Action
         heightAction = new InputAction("Height", binding: "<Keyboard>/q,<Keyboard>/e");
         heightAction.AddCompositeBinding("1D Axis")  
             .With("Positive", "<Keyboard>/q")  
@@ -37,7 +38,7 @@ public class AirshipController : MonoBehaviour
 
     void Update()
     {
-      
+      //Horizontal and Vertical input movement
         movementInput = moveAction.ReadValue<Vector2>();
         float horizontal = movementInput.x;
         float vertical = movementInput.y;
@@ -48,7 +49,7 @@ public class AirshipController : MonoBehaviour
         
         Debug.Log($"Horizontal: {horizontal}, Vertical: {vertical}, Height: {heightInput}, Current Speed: {currentSpeed}");
 
-    
+       //Acceleration and Deceleration
         if (vertical > 0.01f)
         {
             currentSpeed += accelerationRate * Time.deltaTime;
@@ -60,14 +61,14 @@ public class AirshipController : MonoBehaviour
             currentSpeed = Mathf.Max(currentSpeed, minSpeed);
         }
 
-        
+       //Constant movement
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
-
+       //Rotation movement
         if (Mathf.Abs(horizontal) > 0.01f)
         {
             transform.Rotate(Vector3.up, horizontal * turnSpeed * Time.deltaTime);
         }
-
+       //Alter Height
         if (Mathf.Abs(heightInput) > 0.01f)
         {
             float newHeight = transform.position.y + (heightInput * heightSpeed * Time.deltaTime);
@@ -76,7 +77,7 @@ public class AirshipController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, newHeight, transform.position.z);
         }
     }
-
+    //Destroy
     void OnDestroy()
     {
         moveAction.Disable();
