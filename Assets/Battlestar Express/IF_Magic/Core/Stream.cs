@@ -320,7 +320,7 @@ namespace Magic
             if (Application.platform == RuntimePlatform.WindowsEditor)
             {
                 //wired + wireless
-                path = "COM" + (number == "" ? "3" : number);
+                path = "COM" + (number == "" ? "5" : number);
             }
 
             // Mac Player
