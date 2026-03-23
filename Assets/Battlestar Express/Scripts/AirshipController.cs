@@ -47,7 +47,7 @@ public class AirshipController : MonoBehaviour
         float heightInput = heightAction.ReadValue<float>();  
 
         
-        Debug.Log($"Horizontal: {horizontal}, Vertical: {vertical}, Height: {heightInput}, Current Speed: {currentSpeed}");
+        // Debug.Log($"Horizontal: {horizontal}, Vertical: {vertical}, Height: {heightInput}, Current Speed: {currentSpeed}");
 
        //Acceleration and Deceleration
         if (vertical > 0.01f)

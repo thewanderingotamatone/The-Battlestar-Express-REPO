@@ -13,6 +13,7 @@ public class PopularityMeter : MonoBehaviour
 
     public void SetMaxPopularity(int popularity)
     {
+        // takes "popularity" from GameManager.cs
         slider.maxValue = popularity;
         slider.value = popularity;
     }
