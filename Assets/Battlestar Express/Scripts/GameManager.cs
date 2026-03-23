@@ -8,8 +8,9 @@ public class GameManager : MonoBehaviour
     [Header("Popularity Settings")]
     public float popularity = 120f;
     public float decayRateMultiplier = 1f;
+    [SerializeField] private int currentStarLevel; //  visible in Inspector (DO NOT EDIT)
+    [Header("Game State Outcomes")]
 
-    [SerializeField] private int currentStarLevel; //  visible in Inspector (read-only in code)
 
     void Awake()
     {
