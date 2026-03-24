@@ -1,23 +1,37 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro; // remove if not using TextMeshPro
 
 public class TextToggle : MonoBehaviour
 {
-    // Drag your text objects here in the Inspector
-    public GameObject[] textElements;
+    [Header("Group A (Default Visible)")]
+    public GameObject[] groupA;
 
-    private bool isVisible = true;
+    [Header("Group B (Default Hidden)")]
+    public GameObject[] groupB;
+
+    private bool showingGroupA = true;
+
+    void Start()
+    {
+        // Ensure correct starting state
+        SetGroupState(groupA, true);
+        SetGroupState(groupB, false);
+    }
 
     public void ToggleText()
     {
-        // Flip the state
-        isVisible = !isVisible;
+        showingGroupA = !showingGroupA;
 
-        // Apply to all text elements
-        foreach (GameObject text in textElements)
+        SetGroupState(groupA, showingGroupA);
+        SetGroupState(groupB, !showingGroupA);
+    }
+
+    // Helper function to enable/disable groups
+    void SetGroupState(GameObject[] group, bool state)
+    {
+        foreach (GameObject obj in group)
         {
-            text.SetActive(isVisible);
+            obj.SetActive(state);
         }
     }
 }
