@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    // Call this from your button
+    // Call this from the button element (+)
+    // Allows you to type in scene name as it appears in build editor
     public void LoadSceneByName(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
